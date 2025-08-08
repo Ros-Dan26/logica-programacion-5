@@ -17,7 +17,7 @@ public class Main {
         HashMap<String, String> diccionario = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
         String palabra;
-        int puntuacion = 0;
+        int puntuacion = 0, iterador = 0;
 
         diccionario.put("Hola", "Hello");
         diccionario.put("Adios", "GoodBye");
@@ -43,59 +43,19 @@ public class Main {
         List<String> claves = new ArrayList<>(diccionario.keySet());
         Collections.shuffle(claves);
 
-        String palabra1 = claves.get(0);
-        System.out.println("Traduzca la siguiente palabra: " + palabra1);
-        palabra = scanner.nextLine();
-        if(palabra.equalsIgnoreCase(diccionario.get(palabra1))){
-            System.out.println("En hora buena");
-            puntuacion++;
+        while (iterador < 5){
             palabra = "";
-        }else{
-            System.out.println("Has fallado la palabra es: " + diccionario.get(palabra1));
-        }
+            String palabra1 = claves.get(iterador);
+            System.out.print("Traduzca la siguiente palabra " + palabra1 + " :");
+            palabra = scanner.nextLine();
 
-        String palabra2 = claves.get(1);
-        System.out.println("Traduzca la siguiente palabra: " + palabra2);
-        palabra = scanner.nextLine();
-        if(palabra.equalsIgnoreCase(diccionario.get(palabra2))){
-            System.out.println("En hora buena");
-            puntuacion++;
-            palabra = "";
-        }else{
-            System.out.println("Has fallado la palabra es: " + diccionario.get(palabra2));
-        }
-
-        String palabra3 = claves.get(2);
-        System.out.println("Traduzca la siguiente palabra: " + palabra3);
-        palabra = scanner.nextLine();
-        if(palabra.equalsIgnoreCase(diccionario.get(palabra3))){
-            System.out.println("En hora buena");
-            puntuacion++;
-            palabra = "";
-        }else{
-            System.out.println("Has fallado la palabra es: " + diccionario.get(palabra3));
-        }
-
-        String palabra4 = claves.get(3);
-        System.out.println("Traduzca la siguiente palabra: " + palabra4);
-        palabra = scanner.nextLine();
-        if(palabra.equalsIgnoreCase(diccionario.get(palabra4))){
-            System.out.println("En hora buena");
-            puntuacion++;
-            palabra = "";
-        }else{
-            System.out.println("Has fallado la palabra es: " + diccionario.get(palabra4));
-        }
-
-        String palabra5 = claves.get(4);
-        System.out.println("Traduzca la siguiente palabra: " + palabra5);
-        palabra = scanner.nextLine();
-        if(palabra.equalsIgnoreCase(diccionario.get(palabra5))){
-            System.out.println("En hora buena");
-            puntuacion++;
-            palabra = "";
-        }else{
-            System.out.println("Has fallado la palabra es: " + diccionario.get(palabra5));
+            if(palabra.equalsIgnoreCase(diccionario.get(palabra1))){
+                System.out.println("En hora buena");
+                puntuacion++;
+            }else{
+                System.out.println("Has fallado la palabra es: " + diccionario.get(palabra1));
+            }
+            iterador++;
         }
 
         System.out.println("Has acertado: " + puntuacion + " de 5");
